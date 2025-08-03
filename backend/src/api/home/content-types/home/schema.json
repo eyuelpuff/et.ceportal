@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "homes",
+  "info": {
+    "singularName": "home",
+    "pluralName": "homes",
+    "displayName": "home"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nav": {
+      "type": "json"
+    },
+    "hero": {
+      "type": "json"
+    },
+    "stat": {
+      "type": "json"
+    },
+    "message": {
+      "type": "json"
+    },
+    "services": {
+      "type": "json"
+    },
+    "news": {
+      "type": "json"
+    },
+    "footer": {
+      "type": "json"
+    }
+  }
+}
