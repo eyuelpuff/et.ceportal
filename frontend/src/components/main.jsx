@@ -7,9 +7,33 @@ function Main() {
     console.error(error);
     return <p>Error loading data</p>;
   }
+  const transition = (picture_urls, element_id_name) => {
+    const picture_element = document.getElementById(element_id_name);
+    picture_urls.forEach((picture_url) => {
+      [...picture_element.classList].foreach((cls_name) => {
+        if (cls_name.startsWith("bg-[url")) {
+          picture_element.classList.add(`.animate-picture-fade-out`);
+          void picture_element.offsetWidth;
+          picture_element.classList.replace(
+            cls_name,
+            `bg-[url'${picture_url}']`
+          );
+          picture_element.classList.replace(
+            "animate-picture-fade-out",
+            "animate-picture-fade-in"
+          );
+          void x.offsetWidth;
+          picture_element.classList.remove("animate-picture-fade-in ");
+        }
+      });
+    });
+  };
   return (
     <main>
-      <div className="flex flex-col justify-center items-center px-16 w-screen h-140 bg-cover bg-center bg-[url('./assets/addis_page1_bg.png')]">
+      <div
+        className="flex flex-col justify-center items-center px-16 w-screen h-140 bg-cover bg-center"
+        id="frontP"
+      >
         <div className="relative bottom-14 right-1  bg-linear-180 from-[#a6a6a6]/40 to-[#ffffff]/40 rounded-3xl flex justify-center items-center  h-30 w-200">
           <h1 className="text-6xl text-center ">Welcome to Addis Ababa City</h1>
         </div>
@@ -18,6 +42,9 @@ function Main() {
             <img
               className="h-20 w-20 "
               src="./src/assets/assets/portal_svg.svg"
+              onClick={() =>
+                transition({ data: data?.data?.hero?.img }, "frontP")
+              }
             />
           </a>
         </div>
